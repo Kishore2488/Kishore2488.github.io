@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venkata Kishore Vusa — Azure DevOps Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1217;
+    --surface:#151A21;
+    --surface-2:#1C222B;
+    --line:#2A313C;
+    --text:#E6E9EF;
+    --text-dim:#8B93A1;
+    --accent:#2F8FE0;
+    --accent-dim:#1D5C91;
+    --ok:#4FD68C;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:860px; margin:0 auto; padding:0 28px;}
+
+  /* ---- Nav ---- */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(14,18,23,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:860px; margin:0 auto; padding:16px 28px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .brand{font-family:'IBM Plex Mono', monospace; font-size:15px; font-weight:600; color:var(--text);}
+  .brand .dot{color:var(--ok);}
+  .navlinks{display:flex; gap:28px; font-size:14px; color:var(--text-dim);}
+  .navlinks a{text-decoration:none; transition:color .15s;}
+  .navlinks a:hover{color:var(--accent);}
+
+  /* ---- Hero ---- */
+  .hero{padding:88px 0 64px; position:relative;}
+  .status-line{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ok);
+    display:flex; align-items:center; gap:8px; margin-bottom:22px;
+  }
+  .status-line::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 3px rgba(79,214,140,.18);}
+  h1{
+    font-size:46px; font-weight:700; letter-spacing:-0.01em; line-height:1.15;
+    max-width:620px;
+  }
+  .hero p.role{
+    font-size:19px; color:var(--text-dim); margin-top:16px; max-width:520px;
+  }
+  .hero-meta{
+    margin-top:28px; display:flex; gap:22px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--text-dim);
+  }
+  .hero-actions{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:11px 20px; font-size:14px; font-weight:500;
+    border-radius:4px; text-decoration:none; transition:all .15s;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:#4AA0EB;}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---- Pipeline track ---- */
+  .pipeline{position:relative;}
+  .pipeline::before{
+    content:'';
+    position:absolute; left:0; top:8px; bottom:8px; width:2px;
+    background:linear-gradient(to bottom, var(--accent-dim), var(--line) 90%);
+  }
+  .stage{position:relative; padding:54px 0 54px 36px;}
+  .stage::before{
+    content:''; position:absolute; left:-5px; top:60px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .stage-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--accent);
+    text-transform:lowercase; margin-bottom:10px; display:block;
+  }
+  .stage h2{font-size:26px; font-weight:600; margin-bottom:18px;}
+
+  /* ---- About ---- */
+  .about p{color:var(--text-dim); max-width:620px; font-size:16px;}
+  .about p + p{margin-top:14px;}
+
+  /* ---- Skills ---- */
+  .skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .skill-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:6px;
+    padding:20px;
+  }
+  .skill-card h3{font-size:14px; color:var(--text-dim); font-weight:500; margin-bottom:12px; font-family:'IBM Plex Mono', monospace;}
+  .skill-card ul{list-style:none; display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-card li{
+    font-size:13px; padding:5px 10px; background:var(--surface-2);
+    border-radius:4px; color:var(--text);
+  }
+
+  /* ---- Experience ---- */
+  .job{border-left:2px solid var(--line); padding-left:18px; margin-bottom:26px;}
+  .job-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:6px;}
+  .job-title{font-weight:600; font-size:16px;}
+  .job-time{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-dim);}
+  .job ul{color:var(--text-dim); font-size:15px; padding-left:18px; margin-top:8px;}
+  .job li{margin-bottom:6px;}
+
+  /* ---- Projects ---- */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .proj-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:20px;
+    transition:border-color .15s;
+  }
+  .proj-card:hover{border-color:var(--accent-dim);}
+  .proj-card h3{font-size:16px; margin-bottom:8px;}
+  .proj-card p{font-size:14px; color:var(--text-dim);}
+  .proj-tag{
+    display:inline-block; margin-top:12px; font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--accent); background:rgba(47,143,224,.1);
+    padding:3px 8px; border-radius:3px;
+  }
+  .proj-placeholder{
+    border-style:dashed; color:var(--text-dim); display:flex; align-items:center; justify-content:center;
+    text-align:center; font-size:14px; min-height:120px;
+  }
+
+  /* ---- Contact ---- */
+  .contact-links{display:flex; flex-direction:column; gap:14px; margin-top:4px;}
+  .contact-row{
+    display:flex; align-items:center; gap:14px; padding:14px 16px;
+    background:var(--surface); border:1px solid var(--line); border-radius:6px;
+    text-decoration:none; transition:border-color .15s;
+    max-width:460px;
+  }
+  .contact-row:hover{border-color:var(--accent);}
+  .contact-row .k{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-dim); width:72px; flex-shrink:0;}
+  .contact-row .v{font-size:15px; color:var(--text);}
+
+  footer{
+    border-top:1px solid var(--line); padding:28px 0 40px; margin-top:20px;
+    font-size:13px; color:var(--text-dim); font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width:640px){
+    h1{font-size:32px;}
+    .hero{padding:64px 0 44px;}
+    .skill-groups, .proj-grid{grid-template-columns:1fr;}
+    .navlinks{gap:16px; font-size:13px;}
+    .stage{padding-left:24px;}
+  }
+
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">vkv<span class="dot">.</span>deploy</div>
+    <div class="navlinks">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="status-line">pipeline: passing — available for new roles</div>
+    <h1>Venkata Kishore Vusa</h1>
+    <p class="role">Azure DevOps Engineer building and operating CI/CD pipelines, cloud infrastructure, and automation at scale.</p>
+    <div class="hero-meta">
+      <span>Hyderabad, India</span>
+      <span>·</span>
+      <span>TCS since Feb 2022</span>
+      <span>·</span>
+      <span>AWS Certified DevOps Engineer</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="#experience">See experience</a>
+    </div>
+  </section>
+
+  <div class="pipeline">
+
+    <section class="stage" id="about">
+      <span class="stage-tag">stage: about</span>
+      <h2>About</h2>
+      <div class="about">
+        <p>I'm a DevOps Engineer at Tata Consultancy Services, working on Azure infrastructure, CI/CD pipeline design, and GitHub Actions administration for enterprise workloads.</p>
+        <p>My day-to-day spans infrastructure automation with Ansible, container orchestration on AKS, and data platform work on Microsoft Fabric — with a focus on making deployments faster, more repeatable, and easier to reason about.</p>
+      </div>
+    </section>
+
+    <section class="stage" id="skills">
+      <span class="stage-tag">stage: skills</span>
+      <h2>Skills</h2>
+      <div class="skill-groups">
+        <div class="skill-card">
+          <h3>ci/cd &amp; automation</h3>
+          <ul>
+            <li>Azure DevOps</li>
+            <li>GitHub Actions</li>
+            <li>Ansible</li>
+            <li>Pipeline design</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>cloud &amp; infrastructure</h3>
+          <ul>
+            <li>Azure</li>
+            <li>AKS</li>
+            <li>AWS</li>
+            <li>Microsoft Fabric</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage" id="experience">
+      <span class="stage-tag">stage: experience</span>
+      <h2>Experience</h2>
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Azure DevOps Engineer — Tata Consultancy Services</span>
+          <span class="job-time">Feb 2022 — Present</span>
+        </div>
+        <ul>
+          <li>Design and maintain CI/CD pipelines across Azure DevOps and GitHub Actions.</li>
+          <li>Manage Azure infrastructure and support AKS-based deployments.</li>
+          <li>Automate infrastructure provisioning and configuration with Ansible.</li>
+          <li>Administer GitHub Actions workflows and support Microsoft Fabric data workloads.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stage" id="projects">
+      <span class="stage-tag">stage: projects</span>
+      <h2>Projects</h2>
+      <div class="proj-grid">
+        <div class="proj-card proj-placeholder">+ Add a project — pipeline, automation script, or infra build</div>
+        <div class="proj-card proj-placeholder">+ Add a project — open-source contribution or tool</div>
+      </div>
+    </section>
+
+    <section class="stage" id="contact">
+      <span class="stage-tag">stage: contact</span>
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a class="contact-row" href="mailto:venkatakishorevusa@gmail.com">
+          <span class="k">email</span><span class="v">venkatakishorevusa@gmail.com</span>
+        </a>
+        <a class="contact-row" href="https://github.com/Kishore2488" target="_blank" rel="noopener">
+          <span class="k">github</span><span class="v">github.com/Kishore2488</span>
+        </a>
+        <a class="contact-row" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+          <span class="k">linkedin</span><span class="v">Add your LinkedIn URL</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">built with Azure DevOps on the brain · Hyderabad, India</div>
+</footer>
+
+</body>
+</html>
