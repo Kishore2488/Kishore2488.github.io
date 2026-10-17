@@ -262,10 +262,34 @@
       <div class="proj-grid">
         <a class="proj-card" href="https://github.com/Kishore2488/aks-cicd-pipeline" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
           <h3>AKS CI/CD Pipeline</h3>
-          <p>A containerized Flask service with a full working pipeline: GitHub Actions lint/test/build/smoke-test (passing), Kubernetes manifests with probes and resource limits, a manual-dispatch AKS deploy workflow, and an Ansible playbook for node bootstrap.</p>
+          <p>A containerized Flask service with a full working pipeline: GitHub Actions lint/test/build/smoke-test, Kubernetes manifests with probes and resource limits, a manual-dispatch AKS deploy workflow, and an Ansible playbook for node bootstrap.</p>
           <span class="proj-tag">github actions · docker · aks · ansible</span>
         </a>
-        <div class="proj-card proj-placeholder">+ Add another project</div>
+        <a class="proj-card" href="https://github.com/Kishore2488/terraform-azure-aks-module" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+          <h3>Terraform Azure AKS Module</h3>
+          <p>Reusable Terraform module provisioning an AKS cluster, VNet/subnet, and ACR with managed-identity pull access — no static kubeconfig admin credentials. CI runs fmt + validate on every push.</p>
+          <span class="proj-tag">terraform · azure · aks</span>
+        </a>
+        <a class="proj-card" href="https://github.com/Kishore2488/azure-pipelines-multistage" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+          <h3>Azure Pipelines — Multi-Stage CI/CD</h3>
+          <p>A reference azure-pipelines.yml: Build → Test → Dev → approval-gated Prod, built from reusable stage templates instead of one flat file.</p>
+          <span class="proj-tag">azure devops · yaml pipelines</span>
+        </a>
+        <a class="proj-card" href="https://github.com/Kishore2488/prometheus-grafana-aks-monitoring" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+          <h3>Prometheus + Grafana Monitoring Stack</h3>
+          <p>A runnable monitoring stack via Docker Compose — alerting rules for CPU, pod restarts, and target health, with Grafana auto-provisioned on startup. CI validates config with promtool.</p>
+          <span class="proj-tag">prometheus · grafana · docker</span>
+        </a>
+        <a class="proj-card" href="https://github.com/Kishore2488/github-actions-reusable-workflows" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+          <h3>Reusable GitHub Actions Workflows</h3>
+          <p>A small library of workflow_call workflows for Docker build/push and Python test — paved-road CI tooling so repos don't each reinvent the same job.</p>
+          <span class="proj-tag">github actions · platform tooling</span>
+        </a>
+        <a class="proj-card" href="https://github.com/Kishore2488/ansible-azure-vm-baseline" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+          <h3>Ansible Azure VM Baseline</h3>
+          <p>A hardening role for new Azure VMs: unattended upgrades, sshd hardening, fail2ban, and UFW default-deny. CI runs yamllint and ansible-lint on every push.</p>
+          <span class="proj-tag">ansible · security hardening</span>
+        </a>
       </div>
     </section>
 
